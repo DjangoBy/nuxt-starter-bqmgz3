@@ -1,11 +1,11 @@
 <template>
   <div>
     <apexchart
-      :key="series"
-      height="400"
+      :key="series3"
+      height="600"
       width="900"
-      :options="options"
-      :series="series"
+      :options="options3"
+      :series="series3"
     ></apexchart>
   </div>
   <button
@@ -15,7 +15,7 @@
     Change
   </button>
 
-  <div>
+  <!-- <div>
     <apexchart
       :key="series2"
       height="400"
@@ -24,6 +24,7 @@
       :series="series2"
     ></apexchart>
   </div>
+   -->
 </template>
 
 <script setup lang="ts">
@@ -89,6 +90,68 @@ const series2 = ref([
   {
     name: '',
     data: [3483960, 2672108, 2672108, 9165671, 8049812],
+  },
+]);
+
+const options3 = ref({
+  chart: {
+    type: 'bar',
+    stacked: true,
+  },
+  xaxis: {
+    categories: [
+      'HIDE',
+      'Годовой ФСК',
+      'ЖК Shagal, 2',
+      'ЖК "WOW"',
+      'Бауманка, корпуса А Б В',
+      'ЖК "Алое Поле"',
+      'Резиденция "HOLMS"',
+      'ООО "Венталь"',
+      'Чайные холмы',
+    ],
+  },
+  colors: ['#00E396', '#80f1cb', '#D1C4E9', '#80c7fd'],
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      columnWidth: '45%',
+      endingShape: 'rounded',
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    show: true,
+    width: 1,
+    colors: ['#fff'],
+  },
+  legend: {
+    position: 'top',
+    horizontalAlign: 'left',
+    offsetX: 40,
+  },
+});
+const series3 = ref([
+  {
+    name: 'Вероятно',
+    group: 'actual',
+    data: [
+      4541400, 4020600, 1813500, 1170000, 686500, 349412, 175500, 36508, 28235,
+    ],
+  },
+  {
+    name: 'Потенциально',
+    group: 'actual',
+    data: [
+      504600, 2680400, 201500, 130000, 686500, 38824, 19500, 54762, 112941,
+    ],
+  },
+  {
+    name: 'Предоплаты',
+    group: 'pot',
+    data: [1500000, 2200000, 400000],
   },
 ]);
 
